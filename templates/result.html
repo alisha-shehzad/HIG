@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prediction Result</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f7fa;
+      color: #333;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #1a73e8;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      background-color: #1a73e8;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      background-color: #155bb5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Prediction Result</h1>
+
+    {% if filename %}
+      <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image" />
+    {% endif %}
+
+    <h2>Prediction: {{ prediction }}</h2>
+
+    <a href="{{ url_for('index') }}" class="btn">Try Another Image</a>
+    <a href="{{ url_for('history') }}" class="btn">View History</a>
+  </div>
+</body>
+</html>
